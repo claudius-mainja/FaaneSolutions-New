@@ -96,4 +96,13 @@ class UserResource extends Resource
             ])
             ->defaultSort('created_at', 'desc');
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\UserResource\Pages\ListUser::route('/'),
+            'create' => \App\Filament\Resources\UserResource\Pages\CreateUser::route('/create'),
+            'edit' => \App\Filament\Resources\UserResource\Pages\EditUser::route('/{record}/edit'),
+        ];
+    }
 }

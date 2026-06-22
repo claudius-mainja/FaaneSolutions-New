@@ -101,4 +101,13 @@ class MediaResource extends Resource
             ])
             ->defaultSort('created_at', 'desc');
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\MediaResource\Pages\ListMedia::route('/'),
+            'create' => \App\Filament\Resources\MediaResource\Pages\CreateMedia::route('/create'),
+            'edit' => \App\Filament\Resources\MediaResource\Pages\EditMedia::route('/{record}/edit'),
+        ];
+    }
 }

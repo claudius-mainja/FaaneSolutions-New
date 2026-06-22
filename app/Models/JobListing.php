@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 class JobListing extends Model
@@ -17,6 +18,11 @@ class JobListing extends Model
             'is_active' => 'boolean',
             'closing_date' => 'date',
         ];
+    }
+
+    public function applications(): HasMany
+    {
+        return $this->hasMany(Application::class);
     }
 
     protected static function booted(): void

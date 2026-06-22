@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class BlogPost extends Model
 {
-    protected $fillable = ['title', 'slug', 'excerpt', 'content', 'featured_image', 'author', 'tags', 'category', 'is_published', 'published_at'];
+    protected $fillable = ['title', 'slug', 'excerpt', 'content', 'featured_image', 'author', 'tags', 'category', 'is_published', 'published_at', 'meta_title', 'meta_description'];
 
     protected function casts(): array
     {

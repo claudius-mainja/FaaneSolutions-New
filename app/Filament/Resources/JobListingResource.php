@@ -18,6 +18,8 @@ class JobListingResource extends Resource
 
     protected static ?string $navigationGroup = 'Recruitment';
 
+    protected static ?string $navigationLabel = 'Job Posts';
+
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Form $form): Form
@@ -31,11 +33,13 @@ class JobListingResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn (Forms\Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                            ->afterStateUpdated(fn (Forms\Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                            ->placeholder('e.g. Senior Recruitment Consultant'),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
-                            ->unique(ignoreRecord: true),
+                            ->unique(ignoreRecord: true)
+                            ->helperText('Auto-generated from title. Change only if needed.'),
                         Forms\Components\Select::make('type')
                             ->options([
                                 'full-time' => 'Full Time',
@@ -48,51 +52,63 @@ class JobListingResource extends Resource
                             ->required(),
                         Forms\Components\Select::make('department')
                             ->options([
-                                'information-technology' => 'Information Technology',
-                                'healthcare' => 'Healthcare',
-                                'engineering' => 'Engineering',
-                                'finance' => 'Finance',
-                                'education' => 'Education',
-                                'hospitality' => 'Hospitality',
-                                'construction' => 'Construction',
-                                'sales' => 'Sales & Marketing',
-                                'human-resources' => 'Human Resources',
-                                'other' => 'Other',
+                                'Recruitment' => 'Recruitment',
+                                'Immigration' => 'Immigration',
+                                'HR Strategy' => 'HR Strategy',
+                                'Business' => 'Business',
+                                'Business Development' => 'Business Development',
+                                'Mining' => 'Mining',
+                                'Finance' => 'Finance',
+                                'Operations' => 'Operations',
                             ])
-                            ->searchable(),
+                            ->searchable()
+                            ->placeholder('Select department'),
                         Forms\Components\TextInput::make('location')
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->placeholder('e.g. Lusaka, Zambia'),
                         Forms\Components\TextInput::make('salary_range')
-                            ->maxLength(255),
-                        Forms\Components\DatePicker::make('closing_date'),
+                            ->maxLength(255)
+                            ->placeholder('e.g. Competitive + Commission'),
+                        Forms\Components\DatePicker::make('closing_date')
+                            ->label('Closing Date')
+                            ->helperText('After this date, the job will show as "Expired" on the careers page.'),
                         Forms\Components\Toggle::make('is_active')
-                            ->default(true),
+                            ->label('Active')
+                            ->default(true)
+                            ->helperText('Only active jobs appear on the public careers page.'),
                     ]),
                 Forms\Components\Section::make('Content')
                     ->schema([
                         Forms\Components\Textarea::make('summary')
+                            ->label('Short Summary')
                             ->maxLength(500)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->helperText('A brief description shown in job cards on the careers page.'),
                         Forms\Components\RichEditor::make('description')
+                            ->label('Full Description')
                             ->fileAttachmentsDirectory('jobs')
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->toolbarButtons([
+                                'bold', 'italic', 'underline',
+                                'heading', 'h2', 'h3',
+                                'bulletList', 'orderedList',
+                                'link', 'undo', 'redo',
+                            ]),
                     ]),
                 Forms\Components\Section::make('Requirements')
                     ->schema([
-                        Forms\Components\Repeater::make('requirements')
-                            ->schema([
-                                Forms\Components\TextInput::make('requirement')->required(),
-                            ])
-                            ->defaultItems(0)
+                        Forms\Components\TagsInput::make('requirements')
+                            ->label('Requirements')
+                            ->placeholder('Type a requirement and press Enter')
+                            ->splitKeys(['Enter'])
                             ->columnSpanFull(),
                     ]),
                 Forms\Components\Section::make('Responsibilities')
                     ->schema([
-                        Forms\Components\Repeater::make('responsibilities')
-                            ->schema([
-                                Forms\Components\TextInput::make('responsibility')->required(),
-                            ])
-                            ->defaultItems(0)
+                        Forms\Components\TagsInput::make('responsibilities')
+                            ->label('Responsibilities')
+                            ->placeholder('Type a responsibility and press Enter')
+                            ->splitKeys(['Enter'])
                             ->columnSpanFull(),
                     ]),
             ]);
@@ -103,8 +119,10 @@ class JobListingResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Job Title')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->limit(40),
                 Tables\Columns\TextColumn::make('type')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
@@ -118,20 +136,24 @@ class JobListingResource extends Resource
                 Tables\Columns\TextColumn::make('location')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('department')
-                    ->searchable(),
+                    ->searchable()
+                    ->badge(),
                 Tables\Columns\TextColumn::make('closing_date')
-                    ->date()
+                    ->label('Closes')
+                    ->date('M d, Y')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
+                    ->label('Active')
                     ->boolean()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('applications_count')
+                    ->label('Apps')
+                    ->counts('applications')
+                    ->sortable(),
             ])
             ->filters([
-                Tables\Filters\TernaryFilter::make('is_active'),
+                Tables\Filters\TernaryFilter::make('is_active')
+                    ->label('Active?'),
                 Tables\Filters\SelectFilter::make('type')
                     ->options([
                         'full-time' => 'Full Time',
@@ -143,21 +165,19 @@ class JobListingResource extends Resource
                     ]),
                 Tables\Filters\SelectFilter::make('department')
                     ->options([
-                        'information-technology' => 'Information Technology',
-                        'healthcare' => 'Healthcare',
-                        'engineering' => 'Engineering',
-                        'finance' => 'Finance',
-                        'education' => 'Education',
-                        'hospitality' => 'Hospitality',
-                        'construction' => 'Construction',
-                        'sales' => 'Sales & Marketing',
-                        'human-resources' => 'Human Resources',
-                        'other' => 'Other',
+                        'Recruitment' => 'Recruitment',
+                        'Immigration' => 'Immigration',
+                        'HR Strategy' => 'HR Strategy',
+                        'Business' => 'Business',
+                        'Business Development' => 'Business Development',
+                        'Mining' => 'Mining',
+                        'Finance' => 'Finance',
+                        'Operations' => 'Operations',
                     ]),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label('View'),
+                Tables\Actions\EditAction::make()->label('Edit'),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -171,5 +191,14 @@ class JobListingResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\JobListingResource\Pages\ListJobListing::route('/'),
+            'create' => \App\Filament\Resources\JobListingResource\Pages\CreateJobListing::route('/create'),
+            'edit' => \App\Filament\Resources\JobListingResource\Pages\EditJobListing::route('/{record}/edit'),
+        ];
     }
 }

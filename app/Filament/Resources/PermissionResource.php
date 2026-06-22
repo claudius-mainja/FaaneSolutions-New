@@ -74,4 +74,13 @@ class PermissionResource extends Resource
                 ]),
             ]);
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\PermissionResource\Pages\ListPermission::route('/'),
+            'create' => \App\Filament\Resources\PermissionResource\Pages\CreatePermission::route('/create'),
+            'edit' => \App\Filament\Resources\PermissionResource\Pages\EditPermission::route('/{record}/edit'),
+        ];
+    }
 }

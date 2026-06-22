@@ -119,4 +119,14 @@ class ConsultationResource extends Resource
     {
         return static::getModel()::where('status', 'pending')->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\ConsultationResource\Pages\ListConsultation::route('/'),
+            'create' => \App\Filament\Resources\ConsultationResource\Pages\CreateConsultation::route('/create'),
+            'edit' => \App\Filament\Resources\ConsultationResource\Pages\EditConsultation::route('/{record}/edit'),
+            'view' => \App\Filament\Resources\ConsultationResource\Pages\ViewConsultation::route('/{record}'),
+        ];
+    }
 }

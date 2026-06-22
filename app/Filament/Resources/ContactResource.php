@@ -96,4 +96,14 @@ class ContactResource extends Resource
     {
         return static::getModel()::where('is_read', false)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\ContactResource\Pages\ListContact::route('/'),
+            'create' => \App\Filament\Resources\ContactResource\Pages\CreateContact::route('/create'),
+            'edit' => \App\Filament\Resources\ContactResource\Pages\EditContact::route('/{record}/edit'),
+            'view' => \App\Filament\Resources\ContactResource\Pages\ViewContact::route('/{record}'),
+        ];
+    }
 }

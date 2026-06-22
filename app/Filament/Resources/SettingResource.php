@@ -75,4 +75,13 @@ class SettingResource extends Resource
                 ]),
             ]);
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\SettingResource\Pages\ListSetting::route('/'),
+            'create' => \App\Filament\Resources\SettingResource\Pages\CreateSetting::route('/create'),
+            'edit' => \App\Filament\Resources\SettingResource\Pages\EditSetting::route('/{record}/edit'),
+        ];
+    }
 }

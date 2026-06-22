@@ -118,4 +118,13 @@ class EmployerResource extends Resource
     {
         return static::getModel()::where('status', 'pending')->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\EmployerResource\Pages\ListEmployer::route('/'),
+            'create' => \App\Filament\Resources\EmployerResource\Pages\CreateEmployer::route('/create'),
+            'edit' => \App\Filament\Resources\EmployerResource\Pages\EditEmployer::route('/{record}/edit'),
+        ];
+    }
 }

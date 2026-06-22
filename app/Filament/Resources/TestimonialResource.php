@@ -113,4 +113,13 @@ class TestimonialResource extends Resource
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\TestimonialResource\Pages\ListTestimonial::route('/'),
+            'create' => \App\Filament\Resources\TestimonialResource\Pages\CreateTestimonial::route('/create'),
+            'edit' => \App\Filament\Resources\TestimonialResource\Pages\EditTestimonial::route('/{record}/edit'),
+        ];
+    }
 }

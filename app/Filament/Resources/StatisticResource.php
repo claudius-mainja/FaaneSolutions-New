@@ -100,4 +100,13 @@ class StatisticResource extends Resource
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\StatisticResource\Pages\ListStatistic::route('/'),
+            'create' => \App\Filament\Resources\StatisticResource\Pages\CreateStatistic::route('/create'),
+            'edit' => \App\Filament\Resources\StatisticResource\Pages\EditStatistic::route('/{record}/edit'),
+        ];
+    }
 }

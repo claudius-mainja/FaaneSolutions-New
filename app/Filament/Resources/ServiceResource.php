@@ -123,4 +123,13 @@ class ServiceResource extends Resource
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\ServiceResource\Pages\ListService::route('/'),
+            'create' => \App\Filament\Resources\ServiceResource\Pages\CreateService::route('/create'),
+            'edit' => \App\Filament\Resources\ServiceResource\Pages\EditService::route('/{record}/edit'),
+        ];
+    }
 }

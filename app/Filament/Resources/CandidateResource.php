@@ -89,4 +89,13 @@ class CandidateResource extends Resource
             ])
             ->defaultSort('created_at', 'desc');
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\CandidateResource\Pages\ListCandidate::route('/'),
+            'create' => \App\Filament\Resources\CandidateResource\Pages\CreateCandidate::route('/create'),
+            'edit' => \App\Filament\Resources\CandidateResource\Pages\EditCandidate::route('/{record}/edit'),
+        ];
+    }
 }

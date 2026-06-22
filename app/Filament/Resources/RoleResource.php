@@ -83,4 +83,13 @@ class RoleResource extends Resource
                 ]),
             ]);
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\RoleResource\Pages\ListRole::route('/'),
+            'create' => \App\Filament\Resources\RoleResource\Pages\CreateRole::route('/create'),
+            'edit' => \App\Filament\Resources\RoleResource\Pages\EditRole::route('/{record}/edit'),
+        ];
+    }
 }

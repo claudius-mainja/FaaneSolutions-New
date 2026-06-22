@@ -98,4 +98,13 @@ class TeamMemberResource extends Resource
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\TeamMemberResource\Pages\ListTeamMember::route('/'),
+            'create' => \App\Filament\Resources\TeamMemberResource\Pages\CreateTeamMember::route('/create'),
+            'edit' => \App\Filament\Resources\TeamMemberResource\Pages\EditTeamMember::route('/{record}/edit'),
+        ];
+    }
 }

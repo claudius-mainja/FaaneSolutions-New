@@ -35,63 +35,9 @@ class DatabaseSeeder extends Seeder
             ['label' => 'Client Satisfaction', 'value' => 98, 'prefix' => '98', 'suffix' => '%', 'icon' => 'star', 'sort_order' => 4, 'is_active' => true],
         ]);
 
-        TeamMember::insert([
-            [
-                'name' => 'Mwila Banda',
-                'position' => 'Managing Director',
-                'bio' => 'Mwila brings over 15 years of experience in HR consultancy and labour law. She founded Falane Solutions with a vision to transform workforce management across Africa.',
-                'sort_order' => 1,
-                'is_active' => true,
-            ],
-            [
-                'name' => 'Chilufya Mutale',
-                'position' => 'Head of Recruitment',
-                'bio' => 'Chilufya leads our recruitment division with expertise in talent acquisition across multiple sectors, including mining, healthcare, and financial services.',
-                'sort_order' => 2,
-                'is_active' => true,
-            ],
-            [
-                'name' => 'Thandiwe Okafor',
-                'position' => 'Immigration Lead',
-                'bio' => 'Thandiwe specializes in immigration law and cross-border workforce mobility, ensuring compliant and efficient processing for our clients.',
-                'sort_order' => 3,
-                'is_active' => true,
-            ],
-            [
-                'name' => 'James Phiri',
-                'position' => 'Operations Manager',
-                'bio' => 'James oversees our outsourcing and facility management divisions, ensuring seamless service delivery and client satisfaction.',
-                'sort_order' => 4,
-                'is_active' => true,
-            ],
-        ]);
+        TeamMember::truncate();
 
-        Testimonial::insert([
-            [
-                'client_name' => 'Patricia Mulenga',
-                'client_position' => 'HR Director',
-                'client_company' => 'Zambia National Bank',
-                'content' => 'Falane Solutions transformed our recruitment process. Their understanding of our industry and ability to source top-tier talent has been exceptional. We have filled 15 critical positions in just 3 months.',
-                'rating' => 5,
-                'is_active' => true,
-            ],
-            [
-                'client_name' => 'David Chirwa',
-                'client_position' => 'CEO',
-                'client_company' => 'AfriTech Solutions',
-                'content' => 'The immigration services provided by Falane Solutions were invaluable in helping us relocate our expatriate team. Their expertise in Zambian immigration law saved us months of processing time.',
-                'rating' => 5,
-                'is_active' => true,
-            ],
-            [
-                'client_name' => 'Sarah Kapwepwe',
-                'client_position' => 'Managing Director',
-                'client_company' => 'Greenfield Mining Corp',
-                'content' => 'We have been working with Falane Solutions for our outsourcing needs for over 3 years. Their managed workforce program has significantly reduced our operational costs while improving efficiency.',
-                'rating' => 5,
-                'is_active' => true,
-            ],
-        ]);
+        Testimonial::truncate();
 
         $this->call(JobSeeder::class);
 

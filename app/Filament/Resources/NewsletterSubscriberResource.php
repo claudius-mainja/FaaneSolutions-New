@@ -77,4 +77,13 @@ class NewsletterSubscriberResource extends Resource
     {
         return static::getModel()::where('is_active', true)->count() ?: null;
     }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => \App\Filament\Resources\NewsletterSubscriberResource\Pages\ListNewsletterSubscriber::route('/'),
+            'create' => \App\Filament\Resources\NewsletterSubscriberResource\Pages\CreateNewsletterSubscriber::route('/create'),
+            'edit' => \App\Filament\Resources\NewsletterSubscriberResource\Pages\EditNewsletterSubscriber::route('/{record}/edit'),
+        ];
+    }
 }
