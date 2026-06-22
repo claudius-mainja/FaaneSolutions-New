@@ -1,6 +1,35 @@
 @extends('layouts.master')
 
+@php
+    $categoryImages = [
+        'Immigration' => 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=85',
+        'HR Strategy' => 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=85',
+        'Business' => 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=85',
+    ];
+@endphp
+
 @section('title', 'Blog - Falane Solutions')
+@section('meta_description', 'Stay informed with the latest HR trends, immigration updates, and recruitment best practices from Falane Solutions.')
+@section('meta_tags')
+    <meta property="og:title" content="Blog - Falane Solutions">
+    <meta property="og:description" content="Stay informed with the latest HR trends, immigration updates, and recruitment best practices.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="{{ request()->url() }}">
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Falane Solutions Blog",
+        "description": "HR, immigration and business insights for Zambia.",
+        "url": "{{ request()->url() }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Falane Solutions"
+        }
+    }
+    </script>
+@endsection
 
 @section('content')
     {{-- Hero -- full bleed parallax --}}
@@ -37,9 +66,10 @@
             @if($posts && $posts->count() > 0)
                 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 stagger-3d">
                     @foreach($posts as $post)
+                        @php $img = $post->featured_image ?? ($categoryImages[$post->category] ?? 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80'); @endphp
                         <article class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group tilt-card">
                             <div class="overflow-hidden aspect-video img-zoom-card">
-                                <img src="{{ $post->featured_image ?? 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' }}" alt="{{ $post->title }}" class="object-cover w-full h-full">
+                                <img src="{{ $img }}" alt="{{ $post->title }}" class="object-cover w-full h-full" loading="lazy">
                             </div>
                             <div class="p-6">
                                 <div class="flex items-center gap-2">

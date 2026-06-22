@@ -46,9 +46,7 @@ class PageController extends Controller
 
     public function careers()
     {
-        $jobs = JobListing::where('is_active', true)->where(function($q) {
-            $q->whereNull('closing_date')->orWhere('closing_date', '>=', now());
-        })->latest()->get();
+        $jobs = JobListing::where('is_active', true)->latest()->get();
         return view('pages.careers', compact('jobs'));
     }
 
