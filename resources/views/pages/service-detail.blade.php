@@ -7,7 +7,7 @@
     {{-- Hero -- full bleed parallax --}}
     <section class="relative min-h-[55vh] flex items-center parallax-section">
         <div class="absolute inset-0 parallax-bg img-ken-burns">
-            <img src="{{ $service->image ?? 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=85' }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
+            <img src="{{ $service->image ? asset($service->image) : 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=85' }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-500/95 via-primary-500/80 to-primary-500/60"></div>
         <div class="relative section-padding w-full">
@@ -34,7 +34,7 @@
                 <div class="lg:col-span-2" data-aos="fade-right">
                     @if($service->image)
                         <div class="overflow-hidden rounded-2xl shadow-xl img-zoom-card mb-8">
-                            <img src="{{ $service->image }}" alt="{{ $service->title }}" class="object-cover w-full h-[400px]">
+                            <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" class="object-cover w-full h-[400px]">
                         </div>
                     @endif
                     <div class="bg-white p-8 rounded-2xl shadow-sm">

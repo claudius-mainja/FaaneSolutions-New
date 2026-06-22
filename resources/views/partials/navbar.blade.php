@@ -9,21 +9,22 @@
                 <div class="flex items-center gap-1">
                     <a href="{{ route('home') }}" class="nav-link px-3 py-2 text-sm">{{ request()->routeIs('home') ? 'Home' : 'Home' }}</a>
                     <a href="{{ route('about') }}" class="nav-link px-3 py-2 text-sm">About Us</a>
-                    <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('services') }}" class="nav-link px-3 py-2 text-sm">
+                    <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                        <button @click="open = !open" class="nav-link px-3 py-2 text-sm">
                             What We Do
                             <svg class="inline-block w-3 h-3 ml-1 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </a>
-                        <div class="absolute left-0 w-56 mt-2 transition-all duration-200 origin-top-left transform opacity-0 -translate-y-2 pointer-events-none top-full" :class="open ? 'opacity-100 translate-y-0 pointer-events-auto' : ''">
+                        </button>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2" class="absolute left-0 w-56 mt-2 top-full">
                             <div class="py-2 bg-white rounded-xl shadow-xl ring-1 ring-black/5">
-                                <a href="{{ route('services') }}#immigration-services" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Immigration Services</a>
-                                <a href="{{ route('services') }}#hr-outsourcing" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">HR Outsourcing</a>
-                                <a href="{{ route('services') }}#recruitment-services" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Recruitment Services</a>
-                                <a href="{{ route('services') }}#management-training" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Management & Employee Training</a>
-                                <a href="{{ route('services') }}#payroll" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Payroll & Statutory Returns</a>
-                                <a href="{{ route('services') }}#accounting-auditing" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Accounting & Auditing</a>
-                                <a href="{{ route('services') }}#labour-dispute" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Labour Dispute Resolution</a>
-                                <a href="{{ route('services') }}#company-registration" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Company Registration</a>
+                                <a href="{{ route('services') }}" class="block px-4 py-2.5 text-sm font-semibold text-primary-500 border-b border-gray-100 hover:bg-secondary-50 font-body">All Services</a>
+                                <a href="{{ route('service.detail', 'immigration-services') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Immigration Services</a>
+                                <a href="{{ route('service.detail', 'hr-outsourcing') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">HR Outsourcing</a>
+                                <a href="{{ route('service.detail', 'recruitment-services') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Recruitment Services</a>
+                                <a href="{{ route('service.detail', 'management-training') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Management & Employee Training</a>
+                                <a href="{{ route('service.detail', 'payroll') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Payroll & Statutory Returns</a>
+                                <a href="{{ route('service.detail', 'accounting-auditing') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Accounting & Auditing</a>
+                                <a href="{{ route('service.detail', 'labour-dispute') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Labour Dispute Resolution</a>
+                                <a href="{{ route('service.detail', 'company-registration') }}" class="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-secondary-50 hover:text-secondary-600 font-body">Company Registration</a>
                             </div>
                         </div>
                     </div>
@@ -56,14 +57,15 @@
                     <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
                 <div x-show="open" x-cloak class="ml-4 space-y-1">
-                    <a href="{{ route('services') }}#immigration-services" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Immigration Services</a>
-                    <a href="{{ route('services') }}#hr-outsourcing" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">HR Outsourcing</a>
-                    <a href="{{ route('services') }}#recruitment-services" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Recruitment Services</a>
-                    <a href="{{ route('services') }}#management-training" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Management & Employee Training</a>
-                    <a href="{{ route('services') }}#payroll" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Payroll & Statutory Returns</a>
-                    <a href="{{ route('services') }}#accounting-auditing" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Accounting & Auditing</a>
-                    <a href="{{ route('services') }}#labour-dispute" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Labour Dispute Resolution</a>
-                    <a href="{{ route('services') }}#company-registration" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Company Registration</a>
+                    <a href="{{ route('services') }}" class="block px-4 py-2 text-sm font-semibold text-primary-500 border-b border-gray-100 hover:bg-primary-50" @click="mobileOpen = false">All Services</a>
+                    <a href="{{ route('service.detail', 'immigration-services') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Immigration Services</a>
+                    <a href="{{ route('service.detail', 'hr-outsourcing') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">HR Outsourcing</a>
+                    <a href="{{ route('service.detail', 'recruitment-services') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Recruitment Services</a>
+                    <a href="{{ route('service.detail', 'management-training') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Management & Employee Training</a>
+                    <a href="{{ route('service.detail', 'payroll') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Payroll & Statutory Returns</a>
+                    <a href="{{ route('service.detail', 'accounting-auditing') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Accounting & Auditing</a>
+                    <a href="{{ route('service.detail', 'labour-dispute') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Labour Dispute Resolution</a>
+                    <a href="{{ route('service.detail', 'company-registration') }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary-50" @click="mobileOpen = false">Company Registration</a>
                 </div>
             </div>
             <a href="{{ route('careers') }}" class="block px-4 py-3 text-sm font-medium transition-colors rounded-lg text-primary-500 hover:bg-primary-50" @click="mobileOpen = false">Careers</a>

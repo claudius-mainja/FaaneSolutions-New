@@ -24,198 +24,199 @@
     </section>
 
     {{-- Services Grid -- image cards with hover effects --}}
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50" id="services">
         <div class="section-padding">
-            <div class="grid gap-8 md:grid-cols-2">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 text-sm font-semibold rounded-full text-secondary-600 bg-secondary-100">Our Services</span>
+                <h2 class="mt-4 text-3xl font-bold text-primary-500 md:text-4xl font-sans">Comprehensive Business Solutions</h2>
+                <p class="mt-4 text-gray-600">We provide comprehensive business solutions to help your organization thrive in today's competitive landscape.</p>
+            </div>
+
+            <div class="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
                 {{-- Immigration Services --}}
-                <div id="immigration-services" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up">
+                <div id="immigration-services" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=85" alt="Immigration Services" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Immigration Services</h2>
+                        <img src="{{ asset('images/services/immigration services.png') }}" alt="Immigration Services" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Immigration Services</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Expert navigation of complex immigration processes, work permits, visas, and compliance. Personalized solutions backed by up-to-date regulatory knowledge.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>VISA Processing</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Employment Permits</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Investor Permits</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Residence Permits</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">Our experienced team navigates the complexities of immigration processes, ensuring a smooth and streamlined experience for our clients. We offer personalized solutions, keeping up-to-date with the latest immigration regulations and providing expert guidance every step of the way.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">VISA Processing</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Employment Permits</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Investor Permits</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Residence Permits</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Appeals</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Inclusions</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'immigration-services') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- HR Outsourcing --}}
-                <div id="hr-outsourcing" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up" data-aos-delay="50">
+                <div id="hr-outsourcing" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="50">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85" alt="HR Outsourcing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">HR Outsourcing</h2>
+                        <img src="{{ asset('images/services/HR Outsourcing.png') }}" alt="HR Outsourcing" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">HR Outsourcing</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Focus on your core business while we handle payroll, benefits, compliance, and recruitment. Scalable solutions for businesses of all sizes.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Payroll Management</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Benefits Administration</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Legal Compliance</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Recruitment</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">We specialize in providing top-notch HR outsourcing solutions to companies of all sizes. Businesses can focus on their core operations by entrusting us with their HR needs. We handle critical HR functions such as payroll management, employee benefits administration, compliance with labor laws, and recruitment.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Payroll Management</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Benefits Administration</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Legal Compliance</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Recruitment</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'hr-outsourcing') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Recruitment Services --}}
-                <div id="recruitment-services" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up">
+                <div id="recruitment-services" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=85" alt="Recruitment Services" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Recruitment Services</h2>
+                        <img src="{{ asset('images/services/recruitment services.png') }}" alt="Recruitment Services" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Recruitment Services</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Comprehensive recruitment including job advertising, screening, interviews, selection, and training. We deliver qualified candidates aligned with your culture.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Job Advertising</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Candidate Screening</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Interviews & Selection</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Training</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">Our expertise lies in comprehensive recruitment services including job advertising, screening, interviews, selection and training. We present qualified candidates who align with our client's specific requirements and organizational culture.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Job Advertising</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Candidate Screening</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Interviews</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Selection</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Training</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'recruitment-services') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Management & Employee Training --}}
-                <div id="management-training" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up" data-aos-delay="50">
+                <div id="management-training" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="150">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=85" alt="Management & Employee Training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Management & Employee Training</h2>
+                        <img src="{{ asset('images/services/training services.png') }}" alt="Management & Employee Training" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Management & Employee Training</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Empower your workforce with leadership skills, team building, and professional development. Custom programs tailored to your organization's goals.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Leadership Skills</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Team Building</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom Programs</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Professional Development</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">We specialize in providing comprehensive management and employee training programs to empower organizations and their workforce. Our training solutions are designed to enhance leadership skills, foster teamwork, and develop a culture of continuous learning and growth. We also offer customized training as per clients' request.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Leadership Skills</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Team Building</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Custom Programs</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Professional Development</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'management-training') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Payroll & Statutory Returns --}}
-                <div id="payroll" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up">
+                <div id="payroll" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1554224154-26032dfc0dae?w=800&q=85" alt="Payroll & Statutory Returns" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Payroll & Statutory Returns</h2>
+                        <img src="{{ asset('images/services/payroll and statutory.png') }}" alt="Payroll & Statutory Returns" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Payroll & Statutory Returns</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Accurate salary processing, tax deductions, and statutory compliance. We stay current with regulations so you don't have to.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Salary Processing</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tax Deductions</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Statutory Compliance</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Timely Reports</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">Our experienced team handles all aspects of payroll, including accurate and timely processing of salaries, deductions and taxes. We stay up to date with the latest statutory requirements, ensuring that all necessary returns and reports are submitted on time.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Salary Processing</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Tax Deductions</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Statutory Compliance</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Timely Reports</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'payroll') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Accounting & Auditing --}}
-                <div id="accounting-auditing" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up" data-aos-delay="50">
+                <div id="accounting-auditing" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="250">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1554774853-7b03ca58b1a0?w=800&q=85" alt="Accounting & Auditing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Accounting & Auditing</h2>
+                        <img src="{{ asset('images/services/Accounting and auditing.png') }}" alt="Accounting & Auditing" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Accounting & Auditing</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Accurate financial reporting, regulatory compliance, and strategic insights. We help optimize resources, minimize risks, and drive sustainable growth.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Financial Reporting</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Compliance</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Risk Assessment</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Strategic Planning</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">We offer comprehensive auditing and accounting services that empower businesses to thrive in today's dynamic financial landscape. With ultra-careful attention to detail, our expert team ensures accurate financial reporting, regulatory compliance, and strategic insights. We go beyond numbers, providing valuable analysis and recommendations to optimize resources, minimize risks, and drive sustainable growth.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Financial Reporting</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Compliance</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Risk Assessment</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Strategic Planning</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'accounting-auditing') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Labour Dispute Resolution --}}
-                <div id="labour-dispute" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up">
+                <div id="labour-dispute" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=800&q=85" alt="Labour Dispute Resolution" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Labour Dispute Resolution</h2>
+                        <img src="{{ asset('images/services/Labour Dispute Resolution.png') }}" alt="Labour Dispute Resolution" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Labour Dispute Resolution</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Swift and fair resolution of workplace conflicts. Expert mediation, conflict resolution, and risk mitigation to maintain a harmonious work environment.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Mediation</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conflict Resolution</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Legal Representation</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Risk Mitigation</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">Experience efficient and effective labour dispute resolution services tailored to your company's needs. Our expert team specializes in finding swift and fair solutions to labour disputes, ensuring minimal disruption to your operations. With a client-centric approach, we strive to foster positive working relationships and maintain a harmonious work environment.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Mediation</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Conflict Resolution</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Legal Representation</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Risk Mitigation</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'labour-dispute') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Company Registration --}}
-                <div id="company-registration" class="group overflow-hidden rounded-2xl shadow-xl bg-white border border-gray-100 tilt-card service-card" data-aos="fade-up" data-aos-delay="50">
+                <div id="company-registration" class="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="350">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85" alt="Company Registration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-500/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 flex items-center gap-4">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white font-sans">Company Registration</h2>
+                        <img src="{{ asset('images/services/Company Registration.png') }}" alt="Company Registration" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h3 class="p-6 text-2xl font-bold text-white font-sans">Company Registration</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-sm text-gray-600">Comprehensive business registration services. We guide entrepreneurs through entity establishment, legal compliance, tax registration, and licensing.</p>
-                        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Business Registration</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Legal Compliance</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tax Registration</li>
-                            <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Business Licensing</li>
-                        </ul>
-                        <a href="{{ route('contact') }}" class="mt-5 btn-primary inline-flex text-sm items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        <p class="text-sm text-gray-700">We provide comprehensive company registration services, guiding entrepreneurs and businesses through the process of establishing their legal entities. Our expert team offers personalized support, ensuring a smooth and efficient registration process from start to finish.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Business Registration</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Legal Compliance</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Tax Registration</span>
+                            <span class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded">Business Licensing</span>
+                        </div>
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="{{ route('service.detail', 'company-registration') }}" class="btn-primary text-sm !px-5 !py-2.5 inline-flex items-center gap-2">View Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                            <a href="{{ route('contact') }}" class="btn-outline text-sm !px-5 !py-2.5 inline-flex items-center gap-2">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,54 +224,46 @@
     </section>
 
     {{-- Our Process -- visual image cards --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 gradient-bg">
         <div class="section-padding">
             <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <span class="inline-block px-4 py-2 text-sm font-semibold rounded-full text-secondary-600 bg-secondary-100">Our Process</span>
-                <h2 class="mt-4 text-3xl font-bold text-primary-500 md:text-4xl font-sans">How We Work</h2>
-                <p class="mt-4 text-gray-600">A structured approach to ensure successful outcomes for all our services.</p>
+                <span class="inline-block px-4 py-2 text-sm font-semibold rounded-full text-secondary-200 bg-white/20">Our Process</span>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl font-sans">How We Work</h2>
+                <p class="mt-4 text-gray-200">We follow a structured approach to ensure successful outcomes for all our services.</p>
             </div>
 
             <div class="grid gap-8 mt-12 md:grid-cols-4">
-                <div class="relative p-6 text-center bg-white shadow-lg card rounded-xl img-scale-in tilt-card" data-aos="fade-up">
-                    <div class="relative mx-auto w-20 h-20 mb-4 overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=80" alt="Consultation" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-secondary-400/40 flex items-center justify-center">
-                            <span class="text-2xl font-bold text-white font-sans">1</span>
-                        </div>
+                <div class="relative text-center" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center w-12 h-12 text-xl font-bold text-white rounded bg-accent/90 font-sans">1</div>
+                        <div class="flex-grow h-1 ml-4 bg-secondary-400/40"></div>
                     </div>
-                    <h3 class="text-lg font-bold text-primary-500 font-sans">Consultation</h3>
-                    <p class="mt-2 text-sm text-gray-600">Thorough consultation to understand your specific needs and objectives.</p>
+                    <h3 class="text-lg font-bold text-white font-sans">Consultation</h3>
+                    <p class="mt-2 text-sm text-gray-300">We begin with a thorough consultation to understand your specific needs and objectives.</p>
                 </div>
-                <div class="relative p-6 text-center bg-white shadow-lg card rounded-xl img-scale-in tilt-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative mx-auto w-20 h-20 mb-4 overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80" alt="Strategy" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-secondary-400/40 flex items-center justify-center">
-                            <span class="text-2xl font-bold text-white font-sans">2</span>
-                        </div>
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center w-12 h-12 text-xl font-bold text-white rounded bg-secondary-500/90 font-sans">2</div>
+                        <div class="flex-grow h-1 ml-4 bg-secondary-400/40"></div>
                     </div>
-                    <h3 class="text-lg font-bold text-primary-500 font-sans">Strategy</h3>
-                    <p class="mt-2 text-sm text-gray-600">Tailored strategy aligned with your goals and requirements.</p>
+                    <h3 class="text-lg font-bold text-white font-sans">Strategy Development</h3>
+                    <p class="mt-2 text-sm text-gray-300">Our experts develop a tailored strategy aligned with your goals and requirements.</p>
                 </div>
-                <div class="relative p-6 text-center bg-white shadow-lg card rounded-xl img-scale-in tilt-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative mx-auto w-20 h-20 mb-4 overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=200&q=80" alt="Implementation" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-secondary-400/40 flex items-center justify-center">
-                            <span class="text-2xl font-bold text-white font-sans">3</span>
-                        </div>
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center w-12 h-12 text-xl font-bold text-white rounded bg-accent/90 font-sans">3</div>
+                        <div class="flex-grow h-1 ml-4 bg-secondary-400/40"></div>
                     </div>
-                    <h3 class="text-lg font-bold text-primary-500 font-sans">Implementation</h3>
-                    <p class="mt-2 text-sm text-gray-600">Precision execution with regular updates at every step.</p>
+                    <h3 class="text-lg font-bold text-white font-sans">Implementation</h3>
+                    <p class="mt-2 text-sm text-gray-300">We execute the strategy with precision, keeping you informed at every step of the process.</p>
                 </div>
-                <div class="relative p-6 text-center bg-white shadow-lg card rounded-xl img-scale-in tilt-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative mx-auto w-20 h-20 mb-4 overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=200&q=80" alt="Support" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-secondary-400/40 flex items-center justify-center">
-                            <span class="text-2xl font-bold text-white font-sans">4</span>
-                        </div>
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center w-12 h-12 text-xl font-bold text-white rounded bg-secondary-500/90 font-sans">4</div>
+                        <div class="flex-grow h-1 ml-4 hidden md:block" style="background-color: transparent;"></div>
                     </div>
-                    <h3 class="text-lg font-bold text-primary-500 font-sans">Continuous Support</h3>
-                    <p class="mt-2 text-sm text-gray-600">Ongoing support and refinement for long-term success.</p>
+                    <h3 class="text-lg font-bold text-white font-sans">Continuous Support</h3>
+                    <p class="mt-2 text-sm text-gray-300">We provide ongoing support and refinement to ensure long-term success and satisfaction.</p>
                 </div>
             </div>
         </div>

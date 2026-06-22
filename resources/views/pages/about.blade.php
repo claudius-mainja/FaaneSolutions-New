@@ -24,10 +24,10 @@
             <div class="grid items-center gap-12 lg:grid-cols-2">
                 <div class="relative" data-aos="fade-right">
                     <div class="rounded-2xl overflow-hidden shadow-2xl img-zoom-card">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85" alt="Our Story" class="w-full h-[450px] object-cover">
+                        <img src="{{ asset('images/abouthero.png') }}" alt="Our Story" class="w-full h-[450px] object-cover">
                     </div>
                     <div class="absolute -bottom-6 -right-6 rounded-2xl overflow-hidden shadow-xl w-40 h-40 border-4 border-white floating-card">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&q=80" alt="Team" class="w-full h-full object-cover">
+                        <img src="{{ asset('images/aboutfounder.png') }}" alt="Founder" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div data-aos="fade-left">
