@@ -1,0 +1,3 @@
+<button x-data="{ visible: false }" x-init="window.addEventListener('scroll', () => { visible = window.scrollY > 400 })" x-show="visible" x-cloak x-transition @click="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 rounded-full shadow-lg bg-secondary-400 hover:bg-secondary-500 hover:shadow-xl hover:-translate-y-1" aria-label="Scroll to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+</button>
