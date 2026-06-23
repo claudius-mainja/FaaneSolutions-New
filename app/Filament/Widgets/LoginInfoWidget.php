@@ -7,7 +7,7 @@ use Filament\Widgets\Widget;
 
 class LoginInfoWidget extends Widget
 {
-    protected static string $view = 'filament.widgets.login-info';
+    protected string $view = 'filament.widgets.login-info';
 
     protected int | string | array $columnSpan = 'full';
 

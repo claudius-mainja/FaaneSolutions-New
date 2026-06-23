@@ -17,13 +17,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $admin = User::create([
-            'name' => 'Admin',
+        $admin = User::firstOrCreate([
             'email' => 'admin@falanesolutions.com',
+        ], [
+            'name' => 'Admin',
             'password' => Hash::make('password'),
         ]);
 
-        $role = Role::create(['name' => 'super_admin']);
+        $role = Role::firstOrCreate(['name' => 'super_admin']);
         $admin->assignRole('super_admin');
 
         $this->call(ServiceSeeder::class);
@@ -176,9 +177,13 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
+        BlogPost::truncate();
+
         foreach ($posts as $post) {
             BlogPost::create($post);
         }
+
+        Setting::truncate();
 
         Setting::insert([
             ['key' => 'company_name', 'value' => 'Falane Solutions', 'group' => 'general'],

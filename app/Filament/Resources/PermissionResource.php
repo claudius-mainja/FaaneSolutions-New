@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
+
+use UnitEnum;
+
 use Spatie\Permission\Models\Permission;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -13,15 +17,15 @@ class PermissionResource extends Resource
 {
     protected static ?string $model = Permission::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-key';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-key';
 
-    protected static ?string $navigationGroup = 'System';
+    protected static string|UnitEnum|null $navigationGroup = 'System';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make('Permission Details')
                     ->columns(2)

@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
+
+use UnitEnum;
+
 use App\Models\Setting;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -13,15 +17,15 @@ class SettingResource extends Resource
 {
     protected static ?string $model = Setting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?string $navigationGroup = 'System';
+    protected static string|UnitEnum|null $navigationGroup = 'System';
 
     protected static ?string $recordTitleAttribute = 'key';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make('Setting')
                     ->columns(2)

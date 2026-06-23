@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
+
+use UnitEnum;
+
 use App\Models\Application;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -13,17 +17,17 @@ class ApplicationResource extends Resource
 {
     protected static ?string $model = Application::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-document-arrow-up';
 
-    protected static ?string $navigationGroup = 'Recruitment';
+    protected static string|UnitEnum|null $navigationGroup = 'Recruitment';
 
     protected static ?string $navigationLabel = 'Job Applications';
 
     protected static ?string $recordTitleAttribute = 'id';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make('Applicant Information')
                     ->columns(2)

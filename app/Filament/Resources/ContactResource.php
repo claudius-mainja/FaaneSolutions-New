@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
+
+use UnitEnum;
+
 use App\Models\Contact;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -13,15 +17,15 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-inbox';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-inbox';
 
-    protected static ?string $navigationGroup = 'Inquiries';
+    protected static string|UnitEnum|null $navigationGroup = 'Inquiries';
 
     protected static ?string $recordTitleAttribute = 'subject';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make('Contact Information')
                     ->columns(2)

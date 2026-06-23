@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
+
+use UnitEnum;
+
 use App\Models\Employer;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -13,15 +17,15 @@ class EmployerResource extends Resource
 {
     protected static ?string $model = Employer::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-building-office';
 
-    protected static ?string $navigationGroup = 'Recruitment';
+    protected static string|UnitEnum|null $navigationGroup = 'Recruitment';
 
     protected static ?string $recordTitleAttribute = 'company_name';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Section::make('Company Information')
                     ->columns(2)
